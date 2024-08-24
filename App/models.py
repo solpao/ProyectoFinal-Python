@@ -16,7 +16,7 @@ class Importador(models.Model):
     cuit = models.CharField(max_length=11, unique=True)
 
 class Mercaderia(models.Model):
-    nombre = models.CharField(max_length=30)
+    nombre_mer = models.CharField(max_length=30)
     tipo_uni_venta = models.IntegerField()
 
 class Operacion(models.Model):

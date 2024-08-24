@@ -8,4 +8,6 @@ urlpatterns = [
     path('impo-form-2/', views.impo_form2, name="ImpoForm2"),
     path('merc-form-3/', views.merc_form3, name="MercForm3"),
     path('oper-form-4/', views.oper_form4, name="OperForm4"),
+    path('busquedaExportador/', views.busquedaExportador, name="BusquedaExportador"),
+    path('buscar/', views.buscar, name="Buscar"),
 ]
