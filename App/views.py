@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseBadRequest
+#from django.contrib import messages  # Importa el módulo de mensajes de Django
+from django.http import HttpResponse
 from App.models import Exportador, Importador, Mercaderia, Operacion
 from App.forms import ExportadorForm, ImportadorForm, MercaderiaForm, OperacionForm
 
@@ -17,20 +18,26 @@ def expo_form(request):
 
 def expo_form1(request):
       # form Django para agregar Exportador
+      print("Entrando a la vista de Exportador") #Msj de depuración
       if request.method == "POST":
+            print("Solicitud de POST Recibida.") #Msj de depuración
  
             miFormulario = ExportadorForm(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
  
             if miFormulario.is_valid:
+                  print("Formulario válido") #Msj de depuración
+
                   informacion = miFormulario.cleaned_data
                   exportador = Exportador(nombre=informacion['nombre'], domicilio=informacion['domicilio'],email=informacion['email'],cuit=informacion['cuit'])
                   exportador.save()
                   return render(request, "App/inicio.html")
-            
+            else: 
+                  print("Formulario inválido") #Msj de depuración
       else:
+            print("Solicitud GET recibida") #Msj de depuración
             miFormulario = ExportadorForm()
- 
+
       return render(request,"App/expo_formulario_1.html", {"miFormulario": miFormulario})
 
 
@@ -55,20 +62,15 @@ def impo_form2(request):
 def merc_form3(request):
       # form Django para agregar Mercaderia a exportar/importar
       if request.method == "POST":
- 
             miFormulario = MercaderiaForm(request.POST) # Aqui me llega la informacion del html
             print(miFormulario)
-            print(request.POST)  # Imprimir los datos del formulario
-            tipo_uni_venta = request.POST.get('tipo_uni_venta')
-            if tipo_uni_venta is None:
-                  return HttpResponseBadRequest('El campo tipo_uni_venta está ausente.')
 
             if miFormulario.is_valid:
                   informacion = miFormulario.cleaned_data
-                  mercaderia = Mercaderia( nombre_mer=informacion['nombre_mer'], tipo_uni_venta=informacion['tipo_uni_venta'])
+                  mercaderia = Mercaderia( nomb_mer=informacion['nomb_mer'], unidad_venta=informacion['unidad_venta'])
                   mercaderia.save()
                   return render(request, "App/inicio.html")
-                        
+                                
       else:
             miFormulario = MercaderiaForm()
  
@@ -107,3 +109,24 @@ def buscar(request):
             respuesta = "No ingresaste datos"
             #No olvidar from django.http import HttpResponse
             return HttpResponse(respuesta)
+
+def leerExportadores(request):
+      
+      exportadores = Exportador.objects.all #Trae todos los exportadores
+      
+      contexto = {"exportador": exportadores }
+      
+      return render(request,"App/leerExportadores.html",contexto)
+
+def eliminarExportador(request, exportador_nombre):
+      print(exportador_nombre)  # Add this line
+      exportador = Exportador.objects.get(nombre=exportador_nombre)
+      exportador.delete()
+
+      #Vuelvo al menu
+      exportadores = Exportador.objects.all #Trae todos los exportadores
+      
+      contexto = {"exportador": exportadores }
+      
+      return render(request,"App/leerExportadores.html",contexto)
+

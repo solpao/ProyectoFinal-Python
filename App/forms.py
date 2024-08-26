@@ -14,8 +14,8 @@ class ImportadorForm(forms.Form):
     cuit = forms.IntegerField()
 
 class MercaderiaForm(forms.Form):   
-    nombre_mer = forms.CharField()
-    tipo_uni_vta = forms.IntegerField()
+    nomb_mer = forms.CharField()
+    unidad_venta = forms.CharField()
 
 class OperacionForm(forms.Form):
     fecha_operacion = forms.DateField()

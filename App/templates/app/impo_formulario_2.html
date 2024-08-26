@@ -20,7 +20,7 @@
                     <div class="card-header">
                         <h3 class="text-center">Agregar Importador</h3>
                         <div class="card-body">
-                            <form method="post">
+                            <form method="post" action="{% url 'impoform2' %}">
                                 {% csrf_token %}  {# Protección CSRF de Django #}
                                 {{ miFormulario.as_p }} <!-- Renderiza los campos del formulario como párrafos (<p>).   -->
                                 <button type="submit" class="btn btn-primary">Enviar</button>

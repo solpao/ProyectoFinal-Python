@@ -21,9 +21,8 @@ from Proyecto import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('App/', include('App.urls')),
+    path('', include('App.urls')),
     path('saludo/', views.saludo),
     path('probandotemplate/', views.probando_template),
     path('inicio/', views.inicio),
-
 ]
