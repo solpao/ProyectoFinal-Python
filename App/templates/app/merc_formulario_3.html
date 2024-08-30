@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario con Estilo - Agregar Mercaderia</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <title>Agregar Mercadería</title>
 </head>
 <body>
-    <main>
-    {% extends "App/inicio.html" %}  {% load static %}
+    {% extends "app/padre.html" %}
 
-    {% block title %}Página de Mercaderia{% endblock %}
+    {% load static %}
 
-    {% block contenidoQueCambia %}
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
+    {% block contenidoQueCambia %} 
+     <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
                 <div class="card">
                     <div class="card-header">
                         <h3 class="text-center">Agregar Mercaderia</h3>
@@ -30,8 +29,7 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </header>  
     {% endblock %}
-    </main>
 </body>
 </html>

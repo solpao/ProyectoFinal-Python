@@ -4,6 +4,7 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.inicio, name='inicio'),
+    #path('inicio/', views.inicio, name='inicio'),
     path('expo-form/', views.expo_form, name='expoform'), #Conecta URL /expo-form/ a la vista expo_form
     path('expo-form-1/', views.expo_form1, name='expoform1'),
     path('impo-form-2/', views.impo_form2, name='impoform2'),

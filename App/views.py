@@ -4,16 +4,18 @@ from django.http import HttpResponse
 from App.models import Exportador, Importador, Mercaderia, Operacion
 from App.forms import ExportadorForm, ImportadorForm, MercaderiaForm, OperacionForm
 
+
 def inicio(request):
-    return render(request,'App/inicio.html')
+    return render(request,'app/padre.html')
+
 
 def expo_form(request):
       # Form HTML
     if request.method == 'POST':
         exportador = Exportador(nombre=request.POST['exportador'], domicilio=request.POST['domicilio'], email=request.POST['email'],cuit=request.POST['cuit'])
         exportador.save()
-        return render(request,'App/inicio.html')
-    return render(request, "App/expo_Formulario.html")
+        return render(request,'app/padre.html')
+    return render(request, "app/expo_Formulario.html")
       
 
 def expo_form1(request):
@@ -31,14 +33,14 @@ def expo_form1(request):
                   informacion = miFormulario.cleaned_data
                   exportador = Exportador(nombre=informacion['nombre'], domicilio=informacion['domicilio'],email=informacion['email'],cuit=informacion['cuit'])
                   exportador.save()
-                  return render(request, "App/inicio.html")
+                  return render(request, "app/padre.html")
             else: 
                   print("Formulario inválido") #Msj de depuración
       else:
             print("Solicitud GET recibida") #Msj de depuración
             miFormulario = ExportadorForm()
 
-      return render(request,"App/expo_formulario_1.html", {"miFormulario": miFormulario})
+      return render(request,"app/expo_formulario_1.html", {"miFormulario": miFormulario})
 
 
 def impo_form2(request):

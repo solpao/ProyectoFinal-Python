@@ -3,17 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Buscar Exportador por nombre</title>
 </head>
 <body>
-    
-   <form action="/buscar/" method="GET">
-        
-    <input type="text" name="nombre" id="nombre">
-    <input type="submit" value="Buscar">
+    {% extends "app/padre.html" %}
 
+    {% load static %}
 
-   </form>
-
+    {% block contenidoQueCambia %} 
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="text-center">Agregar Exportador</h3>
+                            <div class="card-body">
+                                <form action="/buscar/" method="GET">
+                                <input type="text" name="nombre" id="nombre">
+                                <input type="submit" value="Buscar">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>     
+    {% endblock %}
 </body>
 </html>
