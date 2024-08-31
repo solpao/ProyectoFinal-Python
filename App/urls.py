@@ -12,7 +12,8 @@ urlpatterns = [
     path('oper-form-4/', views.oper_form4, name='operform4'),
     path('busquedaExportador/', views.busquedaExportador, name='BusquedaExportador'),
     path('buscar/', views.buscar, name='Buscar'),
-    path('leerExportadores/', views.leerExportadores, name='leerExportadores'),
-    path('eliminarExportador/<exportador_nombre>', views.eliminarExportador, name='elimExportador' ),
+    path('leerExportadores/', views.leerExportadores, name='leerExpo'),
+    path('editarExportador/<exportador_nombre>', views.editarExportador, name='editExpo' ),
+    path('eliminarExportador/<exportador_nombre>', views.eliminarExportador, name='elimExpo' ),
  
 ]

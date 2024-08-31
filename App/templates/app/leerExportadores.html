@@ -3,17 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Agregar Exportador</title>
+    <style>
+        .mi-lista {
+          text-align: left;
+        }
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; /* Ajusta el valor según tu preferencia */
+        }   
+     </style>
 </head>
 <body>
-    {% for p in exportador %}
-        <li>{{ p }}</li>
-        <button>
-            <a href="{% url 'elimExportador' p.nombre %}">Eliminar Exportador</a>
-        </button>
-    {% endfor %}
-    <br>
-    <a href= "{% url 'expoform1' %}"> Agregar otro Exportador </a>
-   
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %} 
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
+                <div class="card"> 
+                        <h3 class="text-center">Listado de Exportadores</h3>
+                        <div class="card-body"> 
+                            {% if miFormulario.errors %} <!-- Funcionando   -->
+                            <p style="color: red;"> Los datos ingresados son inválidos. </p>
+                            {% endif %}
+                            {% for p in exportador %}
+                                <li class="mi-lista">{{ p }}</li>
+                                <button>
+                                <a href="{% url 'editExpo' p.nombre %}">Editar</a>
+                                <a href="{% url 'elimExpo' p.nombre %}">Eliminar</a>
+                                </button>
+                            {% endfor %}
+                                <br>
+                                <a href= "{% url 'expoform1' %}"> Agregar otro Exportador </a>
+                        </div>                  
+                </div> 
+            </div>
+        </div>
+    </header>                
+    {% endblock %}
 </body>
 </html>

@@ -41,8 +41,14 @@ Hasta el momento, he desarrollado los siguientes requerimientos del usuario:
 #### Opción "Búsqueda" en la barra superior de la aplicación web.
 
 ## Módulo Listado de Exportadores 
-#### Muestra un listado de todos los exportadores. Se puede eliminar y agregar un exportador a través de los botones Eliminar y Agregar.
+#### Muestra un listado de todos los exportadores. Se puede editar, eliminar y agregar un exportador a través de los botones Editar, Eliminar y Agregar otro Exportador.
 #### Aún falta incorporar en la página inicial.
+
+## Falta de Captura de Excepciones:
+#### El código no está diseñado para manejar y capturar las excepciones, por lo cual, el error se propagará hasta llegar al servidor web, y el usuario podría ver un mensaje de error genérico.
+#### Ellos son los siguientes:
+####  MultipleObjectsReturned al eliminarExportador, puesto que habian dos exportadores con el mismo nombre.
+#### IntegrityError al "editarExportador" e intentar guardar un cuit de otro exportador.
 
 ## Acceso a la Base de Datos
 #### Usuario: solep 
