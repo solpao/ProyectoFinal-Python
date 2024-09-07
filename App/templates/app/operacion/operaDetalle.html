@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Operaciones</title>
+    <style>
+        .mi-lista {
+          text-align: left;
+        }
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; /* Ajusta el valor según tu preferencia */
+        }   
+     </style>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %} 
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
+                <div class="card"> 
+                        <div class="card-body"> 
+                            <h3 class="text-center">Detalle de Operación:  {{ object.pk }} </h3>
+                                <li class="mi-lista"> Fecha de Operación: {{ object.fecha_operacion }}</li>
+                                <li class="mi-lista"> Fecha de Cumplimiento: {{ object.fecha_cump }}</li>
+                                <li class="mi-lista"> Nro. de Permiso: {{ object.nro_permiso }}</li>
+                                <li class="mi-lista"> Cantidad: {{ object.cantidad }}</li>
+                                <button>
+                                    <a href="{% url 'operaLista' %}"> Regresar al listado </a>
+                                </button>
+                        </div>                  
+                </div> 
+            </div>
+        </div>
+    </header>                
+    {% endblock %}
+</body>
+</html>

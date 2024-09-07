@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Exportador</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %} 
+    <!-- Masthead--> 
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="fw-bolder">Acerca de mi</h1>
+                        <br></br>
+                        <p class="lead">Hola! Soy Pao. ¡Un gusto que pases por aqui! </p>
+                        <p class="lead">Soy Analista funcional, Analista de datos y Tutora.</p>
+                        <p class="lead">Me considero una persona apasionada por la tecnología, curiosa y proactiva.</p>
+                        <p class="lead">Hoy me encuentro incursionando en desarrollo web, dado que era algo pendiente en mi formación, y muy motivada por continuar aprendiendo.</p>
+                        <br></br>
+
+                        <p>Fecha actual: {{ hoy }}</p>    
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </header>
+    
+    {% endblock %}
+</body>
+</html>

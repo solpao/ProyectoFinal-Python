@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Exportadores</title>
+    <style>
+        .mi-lista {
+          text-align: left;
+        }
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            gap: 50px; /* Ajusta el valor según tu preferencia */
+        }   
+     </style>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %} 
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
+                <div class="card"> 
+                        <div class="card-body"> 
+                            <h3 class="text-center">Detalle de Exportador:  {{ object.nombre }} </h3>
+                                <li class="mi-lista"> Domicilio: {{ object.domicilio }}</li>
+                                <li class="mi-lista"> Email: {{ object.email }}</li>
+                                <li class="mi-lista"> Cuit: {{ object.cuit }}</li>
+                                <button>
+                                    <a href="{% url 'expoLista' %}"> Regresar al listado </a>
+                                </button>
+                        </div>                  
+                </div> 
+            </div>
+        </div>
+    </header>                
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+
+    <title>Listado de operaciones</title>
+    <style>
+        .exporter-list {  /* Controla el espaciado entre los elementos del exportador */
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* Ajuste el espacio entre elementos según sea necesario */
+        }
+
+        .exporter-item {  /* Estiliza entradas de exportador individuales con nombre y botones */
+            display: flex;
+            align-items: center;
+            /* justify-content: space-between; /* Distribuye los botones uniformemente */
+            gap: 10px;  /* Espaciado entre botones dentro de un elemento */
+        }
+
+        .exporter-name {  /* Permite que el nombre del exportador llene el espacio horizontal disponible */
+            flex-grow: 1; 
+        }
+        .buttons {
+            display: flex;
+            gap: 10px;  /* Adjust as needed */
+            padding: 10px;  /* Remove or adjust if needed */
+        }
+    </style>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+    {% load static %}
+    {% block contenidoQueCambia %}
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="card">
+                    <h1 class="text-center">Listado de Operaciones</h1>
+                    <div class="card-body">
+                        <ul class="exporter-list">
+                            {% for object in operaciones %}
+                                <li class="exporter-item">
+                                    <span class="exporter-name">Operación Nro: {{ object.pk }}</span>
+                                    <div class="buttons">
+                                        <button>
+                                            <a href="{% url 'operaDetalle' object.pk %}">Ver</a>
+                                        </button>
+                                        <button>
+                                            <a href="{% url 'operaEditar' object.pk %}">Editar</a>
+                                        </button>
+                                        <button>
+                                            <a href="{% url 'operaEliminar' object.pk %}">Eliminar</a>
+                                        </button>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <br>
+                        <br>
+                        <button>
+                            <a href="{% url 'operaCrear' %}">Nueva Operación</a>
+                        </button>
+                    </div>
+                    <div class="px-4 text-center bg-primary text-white fs-4">Hoy es : {{ fecha_actual }}</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endblock %}
+</body>
+</html>
+    

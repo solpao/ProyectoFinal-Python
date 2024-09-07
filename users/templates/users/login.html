@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+{% extends "app/padre.html" %}
+
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+{% block contenidoQueCambia %}
+   <!-- Masthead--> 
+   <header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
+            <div class="card">
+                <div class="card-header">
+                    {# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
+                    <div class="d-flex justify-content-center">
+                        {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
+                        <div class="d-flex flex-column">
+                            {# Mensaje personalizado en la vista de Login con estilos de Bootstrap #}
+                            <p class="fs-5 fw-bold">{{ msg_login }}</p>
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                            
+                                 {{ form.as_p }}
+                            <input type="submit" value="Iniciar sesión">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              <div class="px-4 text-center bg-primary text-white fs-4">Hoy es : {{ hoy }}</div>
+            </div> 
+        </div>    
+    </div> 
+</header>
+
+{% endblock %}
+</body>
+</html>

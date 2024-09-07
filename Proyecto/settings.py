@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os # Importamos os para agregar la carpeta 'media' con imágenes al proyecto
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.messages',
     'App',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,7 @@ ROOT_URLCONF = 'Proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / './Proyecto/Plantillas'],
+        'DIRS': [ BASE_DIR , 'Proyecto', 'App', 'users' ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,9 +118,20 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Agrego esta CONSTANTE. 
+# LOGIN_URL siempre va estar ubicada en este PATH y no va cambiar.
+# Todas las páginas me van a redirigir ahí: "/users/login/"
+LOGIN_URL = "/users/login/"
+
+#Indica cual es la URL de la carpeta media (imágenes)
+MEDIA_URL = '/media/'
+
+#Indica cual es el path para llegar a la carpeta media
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

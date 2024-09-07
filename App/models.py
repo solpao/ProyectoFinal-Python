@@ -10,7 +10,7 @@ class Exportador(models.Model):
     nombre = models.CharField(max_length=30)
     domicilio = models.CharField(max_length=30)
     email = models.EmailField()
-    cuit = models.IntegerField(unique=True, validators=[validate_cuit])
+    cuit = models.CharField(max_length=13, unique=True, validators=[validate_cuit])
 
     def __str__(self):
         return f"Nombre: {self.nombre} - Domicilio: {self.domicilio} - Email: {self.email} - Cuit: {self.cuit}"
@@ -20,7 +20,7 @@ class Importador(models.Model):
     nombre = models.CharField(max_length=30)
     domicilio = models.CharField(max_length=30)
     email = models.EmailField()
-    cuit = models.IntegerField(unique=True)
+    cuit = models.CharField(max_length=13, unique=True,  validators=[validate_cuit])
 
     def __str__(self):
         return f"Nombre: {self.nombre} - Domicilio: {self.domicilio} - Email: {self.email} - Cuit: {self.cuit}"

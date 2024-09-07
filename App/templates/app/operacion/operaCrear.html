@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Operación</title>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %} 
+    <!-- Masthead--> 
+    <header class="masthead">
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center"> 
+                <div class="card">
+                    <div class="card-header">
+                        <h1>Crear nuevo {{ Operacion }}</h1>
+                        <div class="card-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <button type="submit">Crear</button>
+                            </form>
+                        </div>                        
+                    </div>
+                </div> 
+            </div>    
+        </div> 
+    </header>
+    {% endblock %}    
+</body>
+</html>

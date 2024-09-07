@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Importador por nombre</title>
+    <style>
+        p {
+          color: white
+        }
+      </style>
+</head>
+<body>
+    {% extends "app/padre.html" %}
+
+    {% load static %}
+
+    {% block contenidoQueCambia %} 
+    <!-- Masthead-->
+    <header class="masthead">
+         <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100 align-items-center text-center"> 
+                <div class="card">
+                     <div class="card-header">
+                        <div class="card-body">
+                            <p class="text-dark">Resultados de la búsqueda:</p>
+                            {% if importador %}
+                                 <ul class="list-unstyled text-center">
+                                    {% for nombre in importador %}
+                                    <li>{{ nombre.nombre }}</li>
+                                    <li>{{ nombre.domicilio }}</li>
+                                    <li>{{ nombre.email }}</li>
+                                    <li>{{ nombre.cuit }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %} 
+                                <p>No existe el importador: {{ nombre }}</p>
+                            {% endif %}
+                        </div>
+                     </div>
+                     <p style="background-color: gray;">Fecha actual: {{ hoy }}</p>
+                     
+                </div>
+            </div>
+        </div>
+</header>     
+{% endblock %}
+</body>
+</html>

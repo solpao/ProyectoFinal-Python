@@ -1,8 +1,8 @@
-# Tercer Pre-entrega - Curso Python
+# Trabajo Final del Curso de Python
 ### Comisión: 57825
 ### Profesor: Alejandro Sosa
 ### Tutor: Federico Poliseno
-### Alumna: Soledad Paola Rocha
+### Desarrollado por: Soledad Paola Rocha
 ## Proyecto:
 Aplicación Web para Estudio de Comercio Exterior
 
@@ -13,42 +13,32 @@ Aplicación Web para Estudio de Comercio Exterior
 Aplicación Web destinada a usuarios del estudio de comercio exterior.
 
 Hasta el momento, he desarrollado los siguientes requerimientos del usuario:
-- Alta de Exportadores
-- Alta de Importadores
-- Alta de Mercaderías 
-- Alta de Operaciones
-- Busqueda de Exportadores por nombre
+- Alta de Exportadores (menú Datos)
+- Alta de Importadores (menú Datos)
+- Alta de Mercaderías (menú Datos)
+- Alta de Operaciones (menú Datos)
+- Busqueda de Exportadores por nombre (menú Búsqueda)
+- Busqueda de Importadores por nombre (menú Búsqueda)
+- Acerca de mi (Página que muestra mis datos) 
+- Iniciar Sesión (menú Cuenta)
+- Crear Cuenta (menú Cuenta)
 
-## Módulo de Alta de Exportador
-#### Permite registrar los datos de exportadores como nombre, domicilio, email y cuit a través de un formulario, donde se introducen estos datos para su registro. 
-#### Opción "Exportador" en la barra superior de la aplicación web.
+## Uso de la aplicación
+#### Para ingresar a la aplicación debe colocar http://localhost:8000/
+#### En la página inicial, se observa una barra de navegación, en la parte superior de la página con varias opciones. 
+#### La primera opción es "Admin" que es un enlace al Administrador de la base de datos. 
+#### Luego, la página "Inicio" que me redirige a la página inicial cuando estoy en otra página.
+#### Un menú desplegable 'Datos', a través del cual se pueden ver los listados de los Exportadores, Importadores, Mercaderías y Operaciones. Al ingresar a los listados se pueden ver, crear, editar o eliminar cada uno de los items del listado.
+#### Un menú de "Búsqueda" a través del cual se puede acceder a la búsqueda de Exportador e Importador a partir de ingresar el nombre.
+#### La opción "Acerca de mi" lleva a una página con datos personales.
+#### Al lado derecho, se encuentra el menu de "Cuentas", con las opciones de Iniciar Sesión y Crear cuenta.
+#### Este menu de Cuentas cambia cuando inicio sesión, permitiéndome acceder a editar los datos del usuario o  cerrar sesión en la misma ubicación.
+#### Todas las opciones de la barra de navegación, no estan disponibles sino esta logueado.
 
+##Enlace al video de pruebas:
 
-## Módulo de Alta de Importador
-#### Permite registrar los datos de importadores como nombre, domicilio, email y cuit a través de un formulario, donde se introducen estos datos para su registro.
-#### Opción "Importador" en la barra superior de la aplicación web.
+##Enlace al archivo de pruebas:
 
-## Módulo de Alta de Mercaderia
-#### Permite registrar los datos de la mercadería a importar o exportar. Ellos son el nombre de la mercadería y el tipo de unidad de venta. Se realiza su registro a través de un formulario, donde se introducen estos datos para su registro.
-#### Opción "Mercaderia" en la barra superior de la aplicación web.
-
-## Módulo de Alta de Operación
-#### Permite registrar las operaciones realizadas, a través de un formulario, donde se ingresan datos de una operación como fecha de operación, fecha de cumplimiento, número de permiso y cantidad. 
-#### Opción "Operación" en la barra superior de la aplicación web.
-
-## Módulo de Búsqueda de datos de los Exportadores a partir del nombre
-#### Permite buscar los datos de un exportador determinado, a través del ingreso de su nombre, recuperando e imprimiendo en pantalla todos los datos del exportador como Nombre, Domicilio, email y Cuit. Esta opción inicialmente tiene una página donde ingreso el nombre del exportador a buscar. Haciendo clic, en botón "Buscar" me redirige a otra página con el resultado de la búsqueda. 
-#### Opción "Búsqueda" en la barra superior de la aplicación web.
-
-## Módulo Listado de Exportadores 
-#### Muestra un listado de todos los exportadores. Se puede editar, eliminar y agregar un exportador a través de los botones Editar, Eliminar y Agregar otro Exportador.
-#### Aún falta incorporar en la página inicial.
-
-## Falta de Captura de Excepciones:
-#### El código no está diseñado para manejar y capturar las excepciones, por lo cual, el error se propagará hasta llegar al servidor web, y el usuario podría ver un mensaje de error genérico.
-#### Ellos son los siguientes:
-####  MultipleObjectsReturned al eliminarExportador, puesto que habian dos exportadores con el mismo nombre.
-#### IntegrityError al "editarExportador" e intentar guardar un cuit de otro exportador.
 
 ## Acceso a la Base de Datos
 #### Usuario: solep 
