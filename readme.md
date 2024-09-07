@@ -35,9 +35,11 @@ Hasta el momento, he desarrollado los siguientes requerimientos del usuario:
 #### Este menu de Cuentas cambia cuando inicio sesión, permitiéndome acceder a editar los datos del usuario o  cerrar sesión en la misma ubicación.
 #### Todas las opciones de la barra de navegación, no estan disponibles sino esta logueado.
 
-##Enlace al video de pruebas:
+## Enlace al video de pruebas:
+## https://drive.google.com/file/d/1_Vc3Y08NaecESnNCcT6yC0vKLdvGzjmV/view?usp=sharing
 
-##Enlace al archivo de pruebas:
+## Enlace al archivo de pruebas:
+## https://docs.google.com/spreadsheets/d/12ldgLTnzWdfIJU_kcplhAYT5CVr3k-lX-zfP5SRG6l0/edit?usp=sharing
 
 
 ## Acceso a la Base de Datos
